@@ -1,6 +1,6 @@
 import { Request, Response } from "oak";
 
-export const verifyToken = async ({
+export const verifyToken = ({
   request,
   response,
 }: {
@@ -10,7 +10,7 @@ export const verifyToken = async ({
   try {
     const accessToken = "RTIIQWWTVHBDSD78S78DSNSND9090DST";
     const token = request.url.searchParams.get("hub.verify_token");
-    const challenge = (await request.body().value)?.["hub.challenge"];
+    const challenge = request.url.searchParams.get("hub.challenge");
 
     if (challenge != null && token != null && token == accessToken) {
       response.body = challenge;

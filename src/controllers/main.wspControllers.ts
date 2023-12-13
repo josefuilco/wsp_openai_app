@@ -61,13 +61,13 @@ const getTextUser = (messages: any): string => {
   if (typeMessage === tipo[0]) {
     text = messages.text.body;
   } else if (typeMessage === tipo[1]) {
-    const interactiveObject = messages[tipo[1]];
-    const typeInteractive = interactiveObject[tipo[2]];
+    const interactiveObject = messages.interactive;
+    const typeInteractive = interactiveObject.type;
 
     if (typeInteractive === tipo[3]) {
-      text = interactiveObject[tipo[3]]["title"];
+      text = interactiveObject.button_reply.title;
     } else if (typeInteractive === tipo[4]) {
-      text = interactiveObject[tipo[4]]["title"];
+      text = interactiveObject.list_reply.title;
     } else console.log("Sin mensaje");
   } else console.log("Sin mensaje");
 

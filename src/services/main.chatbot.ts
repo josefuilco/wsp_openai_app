@@ -6,22 +6,13 @@ const client = new OpenAI({
 
 export async function getMessageChatGPT(text: string) {
   try {
-    const response = await client.chat.completions.create({
-      messages: [
-        {
-          role: "system",
-          content: "You are a helpful assistant designed to output JSON.",
-        },
-        {
-          role: "user",
-          content: text,
-        },
-      ],
-      model: "gpt-3.5-turbo-1106",
-      response_format: { type: "json_object" },
+    const response = await client.completions.create({
+      model: "text-davinci-002",
+      prompt: text,
+      max_tokens: 100,
     });
 
-    return response.choices[0].message.content;
+    return response.choices[0].text;
   } catch (error) {
     return `El error es: ${error}`;
   }

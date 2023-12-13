@@ -26,7 +26,7 @@ export const sendMessageWhatsApp = async (
 
   if (response.ok) {
     const responseData = await response.text();
-    console.log(responseData);
+    console.log("Hola mundo");
   } else console.error(`Error: ${response.status} - ${response.statusText}`);
 };
 

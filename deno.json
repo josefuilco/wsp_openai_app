@@ -1,6 +1,7 @@
 {
     "imports": {
-        "oak": "https://deno.land/x/oak@v12.6.1/mod.ts"
+        "oak": "https://deno.land/x/oak@v12.6.1/mod.ts",
+        "openai": "https://deno.land/x/openai@v4.21.0/mod.ts"
     },
     "tasks": {
         "dev": "denon run --allow-net --allow-env src/main.ts"

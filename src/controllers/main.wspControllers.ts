@@ -57,9 +57,9 @@ const getTextUser = (messages: any): string => {
     "list_reply",
   ];
   let text = "";
-  const typeMessage = messages["type"];
+  const typeMessage = messages.type;
   if (typeMessage === tipo[0]) {
-    text = messages["text"]["body"];
+    text = messages.text.body;
   } else if (typeMessage === tipo[1]) {
     const interactiveObject = messages[tipo[1]];
     const typeInteractive = interactiveObject[tipo[2]];

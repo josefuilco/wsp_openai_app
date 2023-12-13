@@ -1,5 +1,4 @@
 import { Context, Request, Response } from "oak";
-import * as wsp from "../services/main.whatsapp.ts";
 import { processMessage } from "../shared/main.processMessage.ts";
 
 export const verifyToken = ({

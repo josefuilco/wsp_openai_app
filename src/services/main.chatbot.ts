@@ -1,7 +1,7 @@
 import OpenAI from "openai";
 
 const client = new OpenAI({
-  apiKey: "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",
+  apiKey: "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",
 });
 
 export async function getMessageChatGPT(text: string) {
@@ -12,8 +12,7 @@ export async function getMessageChatGPT(text: string) {
       max_tokens: 100,
     });
 
-    console.log(await response.choices[0].text);
-    return response.choices[0].text;
+    return response.choices[0].text; // Retorna la respuesta
   } catch (error) {
     return `El error es: ${error}`;
   }

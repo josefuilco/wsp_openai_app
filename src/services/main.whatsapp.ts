@@ -1,16 +1,4 @@
-export const sendMessageWhatsApp = async (
-  textResponse: string,
-  num: number
-) => {
-  const data = JSON.stringify({
-    messaging_product: "whatsapp",
-    to: num,
-    text: {
-      body: textResponse,
-    },
-    type: "text",
-  });
-
+export const sendMessageWhatsApp = async (data: any) => {
   const options: opciones = {
     method: "POST",
     body: data,
@@ -26,7 +14,7 @@ export const sendMessageWhatsApp = async (
 
   if (response.ok) {
     const responseData = await response.text();
-    console.log("Hola mundo");
+    console.log(responseData);
   } else console.error(`Error: ${response.status} - ${response.statusText}`);
 };
 

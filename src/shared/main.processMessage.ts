@@ -8,7 +8,7 @@ export async function processMessage(textUser: string, num: number) {
 
   const resultChatGpt = await gpt.getMessageChatGPT(textUser);
   if (resultChatGpt != null) {
-    const model = MessageText(textUser, num);
+    const model = MessageText(resultChatGpt, num);
     models.push(model);
   } else {
     const model = MessageText("Intentemolos mas tarde", num);
@@ -16,6 +16,7 @@ export async function processMessage(textUser: string, num: number) {
   }
 
   models.forEach((model) => {
-    wsp.sendMessageWhatsApp(model, num);
+    console.log(model);
+    wsp.sendMessageWhatsApp(model);
   });
 }
